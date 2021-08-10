@@ -1,5 +1,5 @@
 <script>
-    import * as Pancake from '@sveltejs/pancake';
+    //import * as Pancake from '@sveltejs/pancake';
 
     //export let topic;
     export let title;
@@ -46,7 +46,7 @@
   <h1>{title}</h1>
 
   <div class="dashboard-chart">
-    <Pancake.Chart x1={1990} x2={2019} y1={1500} y2={3000}>
+    <!-- <Pancake.Chart x1={1990} x2={2019} y1={1500} y2={3000}>
       <Pancake.Box x2={10} y2={100}>
         <div class="axes"></div>
       </Pancake.Box>
@@ -64,7 +64,7 @@
           <path class="data" {d}/>
         </Pancake.SvgLine>
       </Pancake.Svg>
-    </Pancake.Chart>
+    </Pancake.Chart> -->
   </div>
   <!-- <p>Latest data provided on {lastUpdated}</p> -->
 </div>

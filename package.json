@@ -11,8 +11,5 @@
     "@sveltejs/kit": "next",
     "svelte": "^3.34.0"
   },
-  "type": "module",
-  "dependencies": {
-    "@sveltejs/pancake": "^0.0.17"
-  }
+  "type": "module"
 }
