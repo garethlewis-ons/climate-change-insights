@@ -11,7 +11,9 @@
     <div class="wrapper">
         <Breadcrumbs />
         <h1>{ heading }</h1>
-        <h2>{ subhead }</h2>
+        {#if subhead}
+            <h2>{ subhead }</h2>
+        {/if}
         <time>{ date }</time>
     </div>
 </div>
