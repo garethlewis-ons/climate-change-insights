@@ -23,6 +23,8 @@ node_modules
 _actual*.*
 _output
 /types
+/build
+/functions
 
 /site/cypress/screenshots/
 /site/__sapper__/
