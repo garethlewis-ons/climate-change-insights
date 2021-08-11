@@ -35,8 +35,8 @@
     </nav>
 
     <section class="dashboard">
-        <Tile title="Rainfall" />
-        <Tile title="Carbon emissions" />
+        <Tile title="Rainfall" img="tile1.png" />
+        <Tile title="Carbon emissions" img="tile2.png" />
         <Tile title="Drivers visualisation" />
         <Tile title="Impacts visualisation" />
         <Tile title="Mitigation visualisation" />
@@ -85,7 +85,9 @@
         </p>
         
         <figure>
-            <div class="chart"></div>
+            <div class="chart">
+                <img src="/static/charts/ghg-emissions-by-type.png" />
+            </div>
             <figcaption>Source: Office for National Statistics</figcaption>
         </figure>
         
@@ -148,7 +150,11 @@
         </p>
         
         <figure>
-            <div class="chart"></div>
+            <div class="chart">
+                <div class="chart">
+                    <img src="/static/charts/reduction-by-type-of-fuel.png" />
+                </div>
+            </div>
             <figcaption>Source: Office for National Statistics</figcaption>
         </figure>
         

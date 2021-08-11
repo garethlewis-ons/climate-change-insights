@@ -1,12 +1,15 @@
 <script>
     export let title;
+    export let img;
 </script>
 
 <div class="tile">
   <h1>{title}</h1>
 
   <div class="dashboard-chart">
-
+    {#if img}
+        <img src="/static/charts/{img}" />
+    {/if}
   </div>
 </div>
 
