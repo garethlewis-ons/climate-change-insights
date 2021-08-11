@@ -8,7 +8,7 @@
 
   <div class="dashboard-chart">
     {#if img}
-        <img src="/static/charts/{img}" />
+        <img src="./charts/{img}" />
     {/if}
   </div>
 </div>

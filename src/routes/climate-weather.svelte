@@ -68,7 +68,7 @@
         
         <figure>
             <div class="chart">
-                <img src="/static/charts/rainfall.png" />
+                <img src="./charts/rainfall.png" />
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
         </figure>
@@ -134,7 +134,7 @@
         <figure>
             <div class="chart">
                 <div class="chart">
-                    <img src="/static/charts/rainfall-and-acid-rain.png" />
+                    <img src="./charts/rainfall-and-acid-rain.png" />
                 </div>
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
