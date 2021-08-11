@@ -1,7 +1,3 @@
-<script>
-    export let path;
-</script>
-
 <nav>
     <ul>
         <li><a href=".">Home</a></li>

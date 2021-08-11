@@ -1,7 +1,6 @@
 <script>
     import Breadcrumbs from "./Breadcrumbs.svelte";
 
-    export let breadcrumbs;
     export let heading;
     export let subhead;
     export let date;
