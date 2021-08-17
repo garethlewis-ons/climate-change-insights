@@ -85,16 +85,11 @@ import Chart1 from '$lib/Chart1.svelte';
             diam, eu malesuada dui blandit a. Vestibulum id efficitur ex,
             nec scelerisque magna.
         </p>
-        
-        <figure>
-            <div class="chart">
 
-                char1 test
-                <Chart1></Chart1>
-                <img src="./charts/ghg-emissions-by-type.png" alt="charts2" />
-            </div>
-            <figcaption>Source: Office for National Statistics</figcaption>
-        </figure>
+        <div>
+             <Chart1></Chart1>
+            <h4>Source: Office for National Statistics</h4>
+        </div>
         
         <p>
             <a href="#sourcelink">Data for greenhouse gases in the UK from 1990 to 2020 (XLSX, 139KB)</a>

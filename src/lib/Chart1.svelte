@@ -191,16 +191,18 @@
     
     
                             var layout = {
-                                    title: 'Estimated territorial greenhouse gas emissions by gas, UK 1990-2019',
-                                    paper_bgcolor: '#f8f8f8',
-                                    plot_bgcolor: '#f8f8f8',
-                                    legend: {"orientation": "h"}
+                                    title:'Estimated territorial greenhouse gas emissions by gas, UK 1990-2019',
+                                    paper_bgcolor: '#FFF',
+                                    plot_bgcolor: '#FFF',
+                                    legend: {"orientation": "h"},
+                                    yaxis: {fixedrange: true},
+                                    xaxis : {fixedrange: true},
                             };
                                  
                             
                             var data = [trace1, trace2, trace3, trace4, trace5, trace6, trace7];
                                 
-                            Plotly.newPlot('Chart1', data, layout,  {displaylogo: false});                        
+                            Plotly.newPlot('Chart1', data, layout, {displayModeBar: false});                        
     
                         });
            
@@ -213,15 +215,11 @@
     
     
     <style>
-    main {
-        display: flex;
-        flex-direction: column;
-        }
     
     .chartcontainer{
-    
         min-height: 500px;
-        padding: 1em;
+        margin-left: -50px;
+        margin-bottom: 20px;
     }
     
     </style>
