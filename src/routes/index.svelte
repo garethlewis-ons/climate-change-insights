@@ -1,4 +1,6 @@
 <script>
+import Char1 from '$lib/Char1.svelte';
+
     import PageSummary from '$lib/PageSummary.svelte'
     import Tile from '$lib/Tile.svelte';
 </script>
@@ -11,7 +13,7 @@
 
 <article class="wrapper">
 
-    <h2>Latest climate change headlines index</h2>
+    <h2>Latest climate change headlines</h2>
     
     <ul class="bullet">
         <li><a href="#headlineone">Climate change headline one</a></li>
@@ -86,6 +88,8 @@
         
         <figure>
             <div class="chart">
+                <Char1></Char1>
+                char1 test
                 <img src="./charts/ghg-emissions-by-type.png" alt="charts2" />
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
