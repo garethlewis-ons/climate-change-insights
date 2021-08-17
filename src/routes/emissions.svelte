@@ -49,7 +49,7 @@
         
         <figure>
             <div class="chart">
-                <img src="./charts/ghg-emissions-by-type.png" />
+                <img src="./charts/ghg-emissions-by-type.png"  alt="imagechart"/>
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
         </figure>
@@ -115,7 +115,7 @@
         <figure>
             <div class="chart">
                 <div class="chart">
-                    <img src="./charts/reduction-by-type-of-fuel.png" />
+                    <img src="./charts/reduction-by-type-of-fuel.png" alt="charts"/>
                 </div>
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>

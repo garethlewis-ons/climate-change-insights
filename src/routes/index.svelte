@@ -11,7 +11,7 @@
 
 <article class="wrapper">
 
-    <h2>Latest climate change headlines</h2>
+    <h2>Latest climate change headlines index</h2>
     
     <ul class="bullet">
         <li><a href="#headlineone">Climate change headline one</a></li>
@@ -86,7 +86,7 @@
         
         <figure>
             <div class="chart">
-                <img src="./charts/ghg-emissions-by-type.png" />
+                <img src="./charts/ghg-emissions-by-type.png" alt="charts2" />
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
         </figure>
@@ -151,7 +151,7 @@
         
         <figure>
             <div class="chart">]
-                <img src="./charts/reduction-by-type-of-fuel.png" />
+                <img src="./charts/reduction-by-type-of-fuel.png" alt="charts3" />
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
         </figure>
