@@ -1,5 +1,5 @@
 <script>
-import Char1 from '$lib/Char1.svelte';
+import Chart1 from '$lib/Chart1.svelte';
 
     import PageSummary from '$lib/PageSummary.svelte'
     import Tile from '$lib/Tile.svelte';
@@ -88,8 +88,9 @@ import Char1 from '$lib/Char1.svelte';
         
         <figure>
             <div class="chart">
-                <Char1></Char1>
+
                 char1 test
+                <Chart1></Chart1>
                 <img src="./charts/ghg-emissions-by-type.png" alt="charts2" />
             </div>
             <figcaption>Source: Office for National Statistics</figcaption>
