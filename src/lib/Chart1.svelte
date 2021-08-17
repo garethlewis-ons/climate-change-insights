@@ -65,7 +65,7 @@
                 }));         
     }
     
-    fetch('chart1dataset.json')
+    fetch('./charts/chart1dataset.json')
         .then(response => response.json())
         .then(info => {
             getChart1(info.dataset)
