@@ -1,5 +1,6 @@
 <script>
 import Chart1 from '$lib/Chart1.svelte';
+import Chart2 from '$lib/Chart2.svelte';
 
     import PageSummary from '$lib/PageSummary.svelte'
     import Tile from '$lib/Tile.svelte';
@@ -148,13 +149,11 @@ import Chart1 from '$lib/Chart1.svelte';
                 quis velit porttitor, convallis purus at, feugiat ligula.
             </strong>
         </p>
-        
-        <figure>
-            <div class="chart">]
-                <img src="./charts/reduction-by-type-of-fuel.png" alt="charts3" />
-            </div>
-            <figcaption>Source: Office for National Statistics</figcaption>
-        </figure>
+
+        <div>
+            <Chart2></Chart2>
+            <h3>Source: Office for National Statistics</h3>
+        </div>
         
         <ol>
             <li>

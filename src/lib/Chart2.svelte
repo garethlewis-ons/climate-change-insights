@@ -65,7 +65,7 @@
                 }));         
     }
     
-    fetch('chart2dataset.json')
+    fetch('./charts/chart2dataset.json')
         .then(response => response.json())
         .then(info => {
             getChart2(info.dataset)
@@ -181,8 +181,8 @@
 
                             var layout = {
                                 title: 'Recent territorial greenhouse gas emissions by gas, UK 2010 - 2019',
-                                paper_bgcolor: '#f8f8f8',
-                                plot_bgcolor: '#f8f8f8',
+                                paper_bgcolor: '#FFF',
+                                plot_bgcolor: '#FFF',
                                 legend: {"orientation": "h"}
                             };
                             var data = [trace1, trace2, trace3, trace4, trace5, trace6, trace7];
@@ -202,17 +202,11 @@
         flex-direction: column;
         }
     
-    h1 {
-        color: #ff3e00;
-        text-transform: uppercase;
-        font-size: 4em;
-        font-weight: 100;
-    }
     
     .chartcontainer{
-    
         min-height: 500px;
-        padding: 1em;
+        margin-left: -50px;
+        margin-bottom: 20px;
     }
     
 </style>
