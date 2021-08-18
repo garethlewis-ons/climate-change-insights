@@ -121,8 +121,8 @@
 
                     var layout2 = {
                                 title: 'Gas emissions by sectors, UK 2019' + '<br>' + '<br>' + 'All sectors emissions: ' + sumofEmissions[0] + ' Metric Tonnes of CO2 Equivalent',
-                                paper_bgcolor: '#f8f8f8',
-                                plot_bgcolor: '#f8f8f8'
+                                paper_bgcolor: '#fFFF',
+                                plot_bgcolor: '#FFF'
                     };
 
                     datachart4 = [{
@@ -155,10 +155,10 @@
         }
     
     
-    .chartcontainer{
-    
+        .chartcontainer{
         min-height: 500px;
-        padding: 1em;
+        margin-left: -50px;
+        margin-bottom: 20px;
     }
     
 </style>

@@ -287,8 +287,8 @@
 
                         var layout = {
                                 title: 'Recent territorial greenhouse gas emissions by gas, UK 2010 - 2019',
-                                paper_bgcolor: '#f8f8f8',
-                                plot_bgcolor: '#f8f8f8',
+                                paper_bgcolor: '#fFFF',
+                                plot_bgcolor: '#FFF',
                                 legend: {"orientation": "h"}
                             };
                         
@@ -317,15 +317,14 @@
         flex-direction: column;
         }
     
-    .chartcontainer {
-    
+        .chartcontainer{
         min-height: 500px;
-        padding: 1em;
+        margin-left: -50px;
+        margin-bottom: 20px;
     }
     
 </style>
     
 <main>
-    <h2>Here we are</h2>
     <div id="Chart5" class="chartcontainer"></div>
 </main>

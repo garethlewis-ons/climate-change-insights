@@ -1,6 +1,9 @@
 <script>
 import Chart1 from '$lib/Chart1.svelte';
 import Chart2 from '$lib/Chart2.svelte';
+import Chart3 from '$lib/Chart3.svelte';
+import Chart4 from '$lib/Chart4.svelte';
+import Chart5 from '$lib/Chart5.svelte';
 
     import PageSummary from '$lib/PageSummary.svelte'
     import Tile from '$lib/Tile.svelte';
@@ -152,6 +155,20 @@ import Chart2 from '$lib/Chart2.svelte';
 
         <div>
             <Chart2></Chart2>
+            <h3>Source: Office for National Statistics</h3>
+        </div>
+
+        <div>
+            <Chart3></Chart3>
+            <h3>Source: Office for National Statistics</h3>
+        </div>
+
+        <div>
+            <Chart4></Chart4>
+            <h3>Source: Office for National Statistics</h3>
+        </div>
+        <div>
+            <Chart5></Chart5>
             <h3>Source: Office for National Statistics</h3>
         </div>
         
