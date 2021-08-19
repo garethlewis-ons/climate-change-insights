@@ -1,10 +1,11 @@
 <script>
 
-
-
-import Hchart1 from '$lib/Hchart1.svelte';
 import PageSummary from '$lib/PageSummary.svelte'
 import Tile from '$lib/Tile.svelte';
+import Hcharts01 from './Hcharts01.svelte';
+import Hnochart from './Hnochart.svelte';
+
+
 
 
 </script>
@@ -53,6 +54,9 @@ import Tile from '$lib/Tile.svelte';
         <h2>Climate change headline one</h2>
         
         <h3>Subheadline one</h3>
+
+       <Hnochart></Hnochart>
+       <Hcharts01></Hcharts01>
         
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a
@@ -190,7 +194,6 @@ import Tile from '$lib/Tile.svelte';
     </section>
 
 
-  <Hchart1></Hchart1>
 
 
     

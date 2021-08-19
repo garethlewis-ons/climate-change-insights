@@ -5,10 +5,10 @@ const c = [
 	() => import("../../../src/routes/climate-weather.svelte"),
 	() => import("../../../src/routes/Datasetinfo1.svelte"),
 	() => import("../../../src/routes/mitigation.svelte"),
+	() => import("../../../src/routes/Hcharts01.svelte"),
 	() => import("../../../src/routes/emissions.svelte"),
 	() => import("../../../src/routes/Hnochart.svelte"),
 	() => import("../../../src/routes/adaption.svelte"),
-	() => import("../../../src/routes/Hchart1.svelte"),
 	() => import("../../../src/routes/Hchart2.svelte"),
 	() => import("../../../src/routes/Hchart3.svelte"),
 	() => import("../../../src/routes/Hchart4.svelte"),
@@ -32,17 +32,17 @@ export const routes = [
 	// src/routes/mitigation.svelte
 	[/^\/mitigation\/?$/, [c[0], c[5]], [c[1]]],
 
+	// src/routes/Hcharts01.svelte
+	[/^\/Hcharts01\/?$/, [c[0], c[6]], [c[1]]],
+
 	// src/routes/emissions.svelte
-	[/^\/emissions\/?$/, [c[0], c[6]], [c[1]]],
+	[/^\/emissions\/?$/, [c[0], c[7]], [c[1]]],
 
 	// src/routes/Hnochart.svelte
-	[/^\/Hnochart\/?$/, [c[0], c[7]], [c[1]]],
+	[/^\/Hnochart\/?$/, [c[0], c[8]], [c[1]]],
 
 	// src/routes/adaption.svelte
-	[/^\/adaption\/?$/, [c[0], c[8]], [c[1]]],
-
-	// src/routes/Hchart1.svelte
-	[/^\/Hchart1\/?$/, [c[0], c[9]], [c[1]]],
+	[/^\/adaption\/?$/, [c[0], c[9]], [c[1]]],
 
 	// src/routes/Hchart2.svelte
 	[/^\/Hchart2\/?$/, [c[0], c[10]], [c[1]]],

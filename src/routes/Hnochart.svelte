@@ -128,7 +128,6 @@ onMount(createcharts);
 </style>
 <main>
 
-<h1>Sera?</h1>
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
