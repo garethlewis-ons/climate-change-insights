@@ -3,7 +3,7 @@
 import PageSummary from '$lib/PageSummary.svelte'
 import Tile from '$lib/Tile.svelte';
 import Hcharts01 from './Hcharts01.svelte';
-import Hnochart from './Hnochart.svelte';
+
 
 
 
@@ -55,7 +55,7 @@ import Hnochart from './Hnochart.svelte';
         
         <h3>Subheadline one</h3>
 
-       <Hnochart></Hnochart>
+
        <Hcharts01></Hcharts01>
         
         <p>
