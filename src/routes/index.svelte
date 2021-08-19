@@ -1,7 +1,11 @@
 <script>
-    import Hchart1 from '$lib/Hchart1.svelte';
-    import PageSummary from '$lib/PageSummary.svelte'
-    import Tile from '$lib/Tile.svelte';
+
+
+
+import Hchart1 from '$lib/Hchart1.svelte';
+import PageSummary from '$lib/PageSummary.svelte'
+import Tile from '$lib/Tile.svelte';
+
 
 </script>
 
@@ -185,6 +189,9 @@
         
     </section>
 
-    <Hchart1></Hchart1>
+
+  <Hchart1></Hchart1>
+
+
     
 </article>
