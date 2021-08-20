@@ -4,8 +4,8 @@ import {onMount} from "svelte";
 
 function createcharts() {
     
-    console.log("here would e a chart");
-    Highcharts.chart('container', {
+
+Highcharts.chart('container', {
 
     title: {
         text: 'Solar Employment Growth by Sector, 2010-2016'
@@ -73,8 +73,7 @@ function createcharts() {
             }
         }]
     }
-
-    });
+});
 
 
 
