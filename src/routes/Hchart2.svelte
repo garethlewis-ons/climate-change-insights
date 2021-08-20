@@ -1,8 +1,36 @@
 <script>
 
+    import {onMount} from "svelte";
     const endpointChart1 = 'https://staging.gss-data.org.uk/sparql';
+    var counter = 0;
     
-    //sparql header
+    var xcats = [];
+    let emiCO2 = [];
+    var emiCH4 = [];
+    var emiN2O = [];
+    var emiHFC = [];
+    var emiSF6 = [];
+    var emiPFC = [];
+    var emiNF3 = [];
+    var emiFGF = [];
+    
+    
+
+    var emiCO2b = [2890.6907662799313, 2929.9391217363864, 2846.1120033248817, 2771.9875202393896, 2749.3044146073516, 2708.727308535119, 2807.0477470427286, 2674.3447217105586, 2699.0210294863246, 2667.2451193133693, 2700.953700161819, 2742.2683715223684, 2655.987510604493, 2712.282268133871, 2713.9802479295176, 2696.2044621203095, 2682.1449184364174, 2637.1437276310753, 2567.4511906392872, 2320.1988995792344, 2409.423261246877, 2200.265242907917, 2291.3252513459884, 2242.2363157910627, 2046.8139385888935, 1965.3626696524989, 1847.0244149363134, 1786.7706435951404, 1761.5933520700783, 1700.8335640688674];
+    var emiCH4b = [12.908, 5.948, 81.05, 11.248, 89.89, 11.816, 18.274, 18.111];
+    var emiN2Ob = [11.744, 17.722, 16.005, 19.771, 201.85, 24.377, 32.147, 39.387];
+    var emiHFCb = [null, null, 7.988, 12.169, 15.112, 22.452, 34.400, 34.227];
+    var emiSF6b = [12.908, 59.48, 8.105, 11.248, 8.989, 11.816, 18.274, 18.111];
+    var emiPFCb = [12.908, 5.948, 81.05, 11.248, 89.89, 11.816, 18.274, 18.111];
+    var emiNF3b = [12.908, 5.948, 81.05, 11.248, 89.89, 11.816, 18.274, 18.111];
+    var emiFGFb = [12.908, 5.948, 81.05, 11.248, 89.89, 11.816, 18.274, 18.111];
+
+    var testmef = ["2345.454", "3446.345", "2345.55"];
+
+    
+    
+function createcharts() {
+
     function sparql(query) {
         return fetch(endpointChart1, {
             method: 'POST',
@@ -14,203 +42,269 @@
             body: query
         }).then((response) => response.json())
     }
-    
-    function getChart2(dataset) {
+
+    function getChart1(dataset) {
         return sparql(`
-                        PREFIX dcat: <http://www.w3.org/ns/dcat#>
-                        PREFIX dcterms: <http://purl.org/dc/terms/>
-                        PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                        PREFIX qb: <http://purl.org/linked-data/cube#>
-                        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-                        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-                        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-                        PREFIX void: <http://rdfs.org/ns/void#>
-                        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-                        
-                        select ?gastype ?date (SUM(?emission) AS ?totalemis) ?measuretype
-                        WHERE
-                        
-                        {graph <http://gss-data.org.uk/graph/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019> 
-                        
-                        {
-                        
-                        ?obs <http://gss-data.org.uk/data/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019#dimension/gas> ?allgases ;
-                        
-                                <http://gss-data.org.uk/data/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019#dimension/breakdown> ?redux;
-                        
-                        
-                                <http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure> ?measure;
-                        
-                                <http://gss-data.org.uk/data/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019#dimension/period> ?year_uri ;
-                        
-                            <http://gss-data.org.uk/def/measure/gas-emissions> ?emission .
-                        
-                        BIND(SUBSTR(str(?year_uri),38,4) AS ?date)
-                        }
-                        
-                        ?allgases rdfs:label ?gastype.
-                        
-                        ?measure rdfs:label ?measuretype.
-                        
-                        } 
-                        
-                        GROUP BY ?gastype ?date ?measuretype 
-                        
-                        ORDER BY ?gastype ?date
+                            PREFIX dcat: <http://www.w3.org/ns/dcat#>
+                            PREFIX dcterms: <http://purl.org/dc/terms/>
+                            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                            PREFIX qb: <http://purl.org/linked-data/cube#>
+                            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+                            PREFIX void: <http://rdfs.org/ns/void#>
+                            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                            
+                            select ?gastype ?date (SUM(?emission) AS ?totalemis) ?measuretype
+                            WHERE
+                            
+                            {graph <http://gss-data.org.uk/graph/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019> 
+                            
+                            {
+                            
+                            ?obs <http://gss-data.org.uk/data/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019#dimension/gas> ?allgases ;
+                            
+                                    <http://gss-data.org.uk/data/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019#dimension/breakdown> ?redux;
+                            
+                            
+                                    <http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure> ?measure;
+                            
+                                    <http://gss-data.org.uk/data/gss_data/energy/beis-final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2019#dimension/period> ?year_uri ;
+                            
+                                <http://gss-data.org.uk/def/measure/gas-emissions> ?emission .
+                            
+                            BIND(SUBSTR(str(?year_uri),38,4) AS ?date)
+                            }
+                            
+                            ?allgases rdfs:label ?gastype.
+                            
+                            ?measure rdfs:label ?measuretype.
+                            
+                            } 
+                            
+                            GROUP BY ?gastype ?date ?measuretype 
+                            
+                            ORDER BY ?gastype ?date
         
         
         `)
                 .then(response => ({
-                    'chart2rawdata': response.results.bindings,
+                    'chat1rawdata': response.results.bindings,
                 }));         
     }
     
-    fetch('./charts/chart2dataset.json')
+    fetch('./charts/dataset1.json')
         .then(response => response.json())
         .then(info => {
-            getChart2(info.dataset)
-                .then(datasetInfo => {
-                            var counter = 0;
-                            var xcats = [];
-                            var emiCO2 = [];
-                            var emiCH4 = [];
-                            var emiN2O = [];
-                            var emiHFC = [];
-                            var emiSF6 = [];
-                            var emiPFC = [];
-                            var emiNF3 = [];
-                            var emiFGF = [];
+            getChart1(info.dataset)
+                        .then(datasetInfo => {
+    
 
-                            datasetInfo.chart2rawdata.forEach(function(element) {
-
-                                if(element.date.value >= '2010') {
-
+    
+    
+                            datasetInfo.chat1rawdata.forEach(function(element) {
+    
+                                    //console.log(element.gastype.value, element.date.value, element.totalemis.value, element.measuretype.value, element.totalemis.value+5);
+    
+                                  if(element.date.value >= '2010') {
+                                        
                                     if (element.gastype.value == 'Carbon Dioxide - CO2') {
-                                        emiCO2.push(element.totalemis.value);
+                                        emiCO2.push(parseFloat(element.totalemis.value));
                                         xcats.push(element.date.value);
                                         }
-                                    else if (element.gastype.value == 'Methane - CH4') {
-                                        emiCH4.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Methane - CH4') {
+                                        emiCH4.push(parseFloat(element.totalemis.value));
                                     }
-                                    else if (element.gastype.value == 'Nitrous Oxide - N2O') {
-                                        emiN2O.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Nitrous Oxide - N2O') {
+                                        emiN2O.push(parseFloat(element.totalemis.value));
                                     }
-                                    else if (element.gastype.value == 'Hydrofluorocarbons - HFC') {
-                                        emiHFC.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Hydrofluorocarbons - HFC') {
+                                        emiHFC.push(parseFloat(element.totalemis.value));
                                     }
-                                    else if (element.gastype.value == 'Sulphur Hexafluoride - SF6') {
-                                        emiSF6.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Sulphur Hexafluoride - SF6') {
+                                        emiSF6.push(parseFloat(element.totalemis.value));
                                     }
-                                    else if (element.gastype.value == 'Perfluorocarbons - PFC') {
-                                        emiPFC.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Perfluorocarbons - PFC') {
+                                        emiPFC.push(parseFloat(element.totalemis.value));
                                     }
-                                    else if (element.gastype.value == 'Nitrogen Trifluoride - NF3') {
-                                        emiNF3.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Nitrogen Trifluoride - NF3') {
+                                        emiNF3.push(parseFloat(element.totalemis.value));
                                     }
-                                    else if (element.gastype.value == 'Fluorinated Gases - F Gases') {
-                                        emiFGF.push(element.totalemis.value);
+                                    else
+                                    if (element.gastype.value == 'Fluorinated Gases - F Gases') {
+                                        emiFGF.push(parseFloat(element.totalemis.value));
                                     }
-
-                                };
-
+    
+                                  }
+                                  
                             });
+                       
     
-    
-                            var trace1 = {
-                                name: 'Net CO2 emissions',
-                                x: xcats,
-                                y: emiCO2,
-                                fill: '#F4A02B',
-                                fillcolor: '#F4A02B',
-                                type: 'scatter'
-                            };
-                              
-                            var trace2 = {
-                                name: 'Methane (CH4)',
-                                x: xcats,
-                                y: emiCH4,
-                                fill: '#5C51E2',
-                                fillcolor: '#5C51E2',
-                                type: 'scatter'
-                            };
-
-                            var trace3 = {
-                                name: 'Nitrous oxide (N2O)',
-                                x: xcats,
-                                y: emiN2O,
-                                fill: '#16B5D2',
-                                fillcolor:'#16B5D2',
-                                type: 'scatter'
-                            };
-
-                            var trace4 = {
-                                name: 'Hydrofluorocarbons (HFC)',
-                                x: xcats,
-                                y: emiHFC,
-                                fill: '#F34662',
-                                fillcolor: '#F34662',
-                                type: 'scatter'
-                            };
-
-                            var trace5 = {
-                                name: 'Sulphur hexafluoride (SF6)',
-                                x: xcats,
-                                y: emiSF6,
-                                fill: '#5F27CD',
-                                fillcolor: '#5F27CD',
-                                type: 'scatter'
-                            };
-
-                            var trace6 = {
-                                name: 'Perfluorocarbons (PFC)',
-                                x: xcats,
-                                y: emiPFC,
-                                fill: '#1DD1A1',
-                                fillcolor: '#1DD1A1',
-                                type: 'scatter'
-                            };
-
-                            var trace7 = {
-                                name: 'Nitrogen Trifluoride - NF3',
-                                x: xcats,
-                                y: emiNF3,
-                                fill: '#1DD133',
-                                fillcolor: '#1DD133',
-                                type: 'scatter'
-                            };
-
-                            var layout = {
-                                title: 'Recent territorial greenhouse gas emissions by gas, UK 2010 - 2019',
-                                paper_bgcolor: '#FFF',
-                                plot_bgcolor: '#FFF',
-                                legend: {"orientation": "h"}
-                            };
-                            var data = [trace1, trace2, trace3, trace4, trace5, trace6, trace7];
-                            Plotly.newPlot('Chart2', data, layout,  {displaylogo: false});                        
                         });
-
+           
         }).catch((err) => {
-
-        console.log("error chart3")
+        // Do something for an error here
+        // console.log("error hero")
     });
+   
+    console.log(emiFGFb);
+    console.log(emiFGF);
+    //let emitparsed = JSON.parse(emiFGF);
+
+
+    Highcharts.chart('container', { 
+
+                title: {
+                    text: 'Gas emissions'
+                },
+
+                subtitle: {
+                    text: 'Source: Open Linked Data - PMD'
+                },
+
+                yAxis: {
+                    title: {
+                        text: 'Emissions MTCO2'
+                    }
+                },
+
+                xAxis: {
+                    accessibility: {
+                        rangeDescription: 'Range: 1990 to 2019'
+                    }
+                },
+
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: true
+                        },
+                        pointStart: 1990
+                    }
+                },
+
+                series: [{
+                    name: 'CO2',
+                    data: emiCO2b
+                }, {
+                    name: 'CH4',
+                    data: emiCH4b
+                }, {
+                    name: 'N2O',
+                    data: emiN2Ob
+                }, {
+                    name: 'HFC',
+                    data: emiHFCb
+                }, {
+                    name: 'SF6',
+                    data: emiSF6b
+                }, {
+                    name: 'PFC',
+                    data: emiPFCb
+                }, {
+                    name: 'NF3',
+                    data: emiNF3b
+                }, {
+                    name: 'FGF',
+                    data: emiFGF
+                }
+            
+                ],
+
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+
+
+     });
+
+
+
+
+     
+
+};
+   
+
+
+
+onMount(createcharts);
     
-    </script>
-    
-<style>
-    main {
-        display: flex;
-        flex-direction: column;
-        }
+</script>
     
     
-    .chartcontainer{
-        min-height: 500px;
-        margin-left: -50px;
-        margin-bottom: 20px;
+    <style>
+    
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 360px; 
+        max-width: 800px;
+        margin: 1em auto;
     }
     
-</style>
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
     
-<main>
-    <div id="Chart2" class="chartcontainer"></div>
-</main>
+    
+    
+    </style>
+    <main>
+    
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Basic line chart showing trends in a dataset. This chart includes the
+            <code>series-label</code> module, which adds a label to each line for
+            enhanced readability.
+        </p>
+    </figure>
+    
+    
+    </main>
