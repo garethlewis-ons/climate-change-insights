@@ -122,6 +122,9 @@
                                     sumofEmissions.unshift(sumofEmissions4);
                                     
                                     //highcharts here
+
+                                    console.log("sumofEmissions");
+                                    console.log(sumofEmissions);
                                             
                                 });
 
@@ -134,6 +137,8 @@
    
         //close createcharts
     };
+
+
     onMount(createcharts);
 
    

@@ -1,7 +1,13 @@
 <script>
     import {onMount} from "svelte";
     const endpointChart3 = 'https://staging.gss-data.org.uk/sparql';
-    
+    var xcats7 = [];
+                                    var emicoal = [];
+                                    var emipetro = [];
+                                    var emigasf = [];
+                                    var emiOsol = [];
+                                    var emiOSF = [];
+                                    var xcats = xcats7; 
 
 
     function createcharts() {
@@ -68,46 +74,82 @@
                         getChart3(info.dataset)
                             .then(datasetInfo => {
 
-                                    var xcats7 = [];
-                                    var emicoal = [];
-                                    var emipetro = [];
-                                    var emigasf = [];
-                                    var emiOsol = [];
-                                    var emiOSF = [];
-                                    var xcats = xcats7; 
+
 
                                     datasetInfo.Chart3rawdata.forEach(function(element) {
 
                                             if(element.date.value >= '1990') {
               
                                                   if (element.gastype.value == 'http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/coal') {
-                                                    emicoal.push(element.value.value);
+                                                    emicoal.push(Number(element.value.value));
                                                       xcats7.push(element.date.value);
                                                       }
                                                   else
                                                   if (element.gastype.value == 'http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/petroleum') {
-                                                    emipetro.push(element.value.value);
+                                                    emipetro.push(Number(element.value.value));
                                                   }
                                                   else
                                                   if (element.gastype.value == 'http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/gaseous-fuels') {
-                                                    emigasf.push(element.value.value);
+                                                    emigasf.push(Number(element.value.value));
                                                   }
                                                   else
                                                   if (element.gastype.value == 'http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/other-emissions') {
-                                                    emiOsol.push(element.value.value);
+                                                    emiOsol.push(Number(element.value.value));
                                                   }
                                                   else
                                                   if (element.gastype.value == 'http://gss-data.org.uk/def/climate-change/concept/national-communication-fuel/other-solid-fuels') {
-                                                    emiOSF.push(element.value.value);
+                                                    emiOSF.push(Number(element.value.value));
                                                   }
                                                   
                                                   
                                             };
 
                                     });
-                
-                
-                                      //Highcharts here
+                                    
+
+                                      Highcharts.chart('chart3', {
+                                                        chart: {
+                                                            type: 'line'
+                                                        },
+                                                        title: {
+                                                            text: 'Emission by fuel type'
+                                                        },
+                                                        subtitle: {
+                                                            text: 'PMD'
+                                                        },
+                                                        xAxis: {
+                                                            categories: xcats7,
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Metric tons of CO2 equivalent'
+                                                            }
+                                                        },
+                                                        plotOptions: {
+                                                            line: {
+                                                                dataLabels: {
+                                                                    enabled: false
+                                                                },
+                                                                enableMouseTracking: false
+                                                            }
+                                                        },
+                                                        series: [{
+                                                            name: 'Coal',
+                                                            data: emicoal
+                                                        }, {
+                                                            name: 'Petrol',
+                                                            data: emipetro,
+                                                        }, {
+                                                            name: 'Gas',
+                                                            data: emigasf,
+                                                        }, {
+                                                            name: 'Osol',
+                                                            data: emiOsol,
+                                                        }, {
+                                                            name: 'emiOSF',
+                                                            data: emiOSF,
+                                                        }]
+                                                    });
                                         
                                         
                                     });
@@ -116,6 +158,9 @@
 
                     console.log("error chart3")
                 });
+
+
+
 
 
     };
@@ -133,5 +178,5 @@
 </style>
     
 <main>
-    <div id="Chart3" class="chartcontainer"></div>
+    <div id="chart3" class="chartcontainer"></div>
 </main>

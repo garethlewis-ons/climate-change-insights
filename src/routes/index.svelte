@@ -2,6 +2,9 @@
 
 import PageSummary from '$lib/PageSummary.svelte'
 import Tile from '$lib/Tile.svelte';
+import Hchart2 from './Hchart2.svelte';
+import Hchart3 from './Hchart3.svelte';
+import Hchart4 from './Hchart4.svelte';
 import Hcharts01 from './Hcharts01.svelte';
 
 
@@ -64,18 +67,20 @@ import Hcharts01 from './Hcharts01.svelte';
             euismod nisl rhoncus et. Integer congue, arcu in imperdiet
             gravida.
         </p>
+
+        <Hchart2></Hchart2>
         
         <p>
             Quisque aliquet dolor ut odio placerat eleifend. Nulla id eros
             pretium, placerat dolor a, luctus turpis. 
         </p>
-        
+        <Hchart3></Hchart3>
         <p>
             Nulla fermentum id erat sit amet aliquam. Class aptent taciti
             sociosqu ad litora torquent per conubia nostra, per inceptos
             himenaeos. 
         </p>
-        
+        <Hchart4></Hchart4>
         <p>
             Phasellus ut dignissim erat, ut porta justo. Vestibulum
             eleifend sed risus nec efficitur. Fusce congue, libero vel
