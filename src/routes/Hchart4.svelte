@@ -39,7 +39,7 @@
                             {graph <http://gss-data.org.uk/graph/gss_data/climate-change/beis-2019-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source>
                             
                             {
-                            ?obs <http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sub-sector> ?sector ;
+                            ?obs <http://gss-data.org.uk/def/climate-change/property/dimension/national-communication-sector> ?sector ;
                                 
                                     <http://gss-data.org.uk/data/gss_data/climate-change/beis-2019-uk-greenhouse-gas-emissions-final-figures-dataset-of-emissions-by-source#dimension/year> <http://reference.data.gov.uk/id/year/2019>;
                             
@@ -69,7 +69,7 @@
                                 .then(datasetInfo => {
 
                                     
-                                    var allCategories = [""];
+                                    var allCategories = [];
                                     var eachEmission = [];
                                     var parcedEmission = [];
                                     var sumofEmissions = [];
@@ -80,16 +80,15 @@
 
 
                                     if (
-                                            element.sectortype.value == 'Aviation' ||
-                                            element.sectortype.value == 'Cropland' ||
-                                            element.sectortype.value == 'Enteric Fermentation' ||
-                                            element.sectortype.value == 'Other Agriculture' ||
-                                            element.sectortype.value == 'Other Mobile' ||
-                                            element.sectortype.value == 'Railways' ||
-                                            element.sectortype.value == 'Road' ||
-                                            element.sectortype.value == 'Settlements' ||
-                                            element.sectortype.value == 'Wastes' ||
-                                            element.sectortype.value == 'Wetlands'
+                                            element.sectortype.value == 'Agriculture' ||
+                                            element.sectortype.value == 'Business' ||
+                                            element.sectortype.value == 'Energy Supply' ||
+                                            element.sectortype.value == 'Industrial Processes' ||
+                                            element.sectortype.value == 'Land Use and Land Use Change and Forestry' ||
+                                            element.sectortype.value == 'Public' ||
+                                            element.sectortype.value == 'Residential' ||
+                                            element.sectortype.value == 'Transport' ||
+                                            element.sectortype.value == 'Waste Management'
                                             ) 
                                             {
 
@@ -125,6 +124,83 @@
 
                                     console.log("sumofEmissions");
                                     console.log(sumofEmissions);
+                                    console.log("allCategories");
+                                    console.log(allCategories)
+
+
+
+                                    Highcharts.chart('chart4', {
+                                                    series: [{
+                                                        type: "treemap",
+                                                        layoutAlgorithm: 'stripes',
+                                                        alternateStartingDirection: true,
+                                                        levels: [{
+                                                            level: 1,
+                                                            layoutAlgorithm: 'sliceAndDice',
+                                                            dataLabels: {
+                                                                enabled: true,
+                                                                align: 'left',
+                                                                verticalAlign: 'top',
+                                                                style: {
+                                                                    fontSize: '15px',
+                                                                    fontWeight: 'bold'
+                                                                }
+                                                            }
+                                                        }],
+                                                        data: [{
+                                                            name: allCategories[0],
+                                                            parent: allCategories[0],
+                                                            value: sumofEmissions[0],
+                                                            color: '#F4A02B'
+                                                        }, {
+                                                            name: allCategories[1],
+                                                            parent: allCategories[1],
+                                                            value: sumofEmissions[1],
+                                                            color: '#17B5D2'
+                                                        }, {
+                                                            name: allCategories[2],
+                                                            parent: allCategories[2],
+                                                            value: sumofEmissions[2],
+                                                            color: '#F34662'
+                                                        }, {
+                                                            name: allCategories[3],
+                                                            parent: allCategories[3],
+                                                            value: sumofEmissions[3],
+                                                            color: '#5F27CD'
+                                                        }, {
+                                                            name: allCategories[4],
+                                                            parent: allCategories[4],
+                                                            value: sumofEmissions[4],
+                                                            color: '#FF0066'
+                                                        }, {
+                                                            name: allCategories[5],
+                                                            parent: allCategories[5],
+                                                            value: sumofEmissions[5],
+                                                            color: '#5F27CD'
+                                                        }, {
+                                                            name: allCategories[6],
+                                                            parent: allCategories[6],
+                                                            value: sumofEmissions[6],
+                                                            color: '#1DD1A1'
+                                                        }, {
+                                                            name: allCategories[7],
+                                                            parent: allCategories[7],
+                                                            value: sumofEmissions[7],
+                                                            color: '#7D38A1'
+                                                        }, {
+                                                            name: allCategories[8],
+                                                            parent: allCategories[8],
+                                                            value: sumofEmissions[8],
+                                                            color: '#0000FF'
+                                                        }, ]
+                                                    }],
+                                                    title: {
+                                                        text: 'Total emissions by sector 2019 (MT GWP CO2)'
+                                                    }
+                                                });
+
+
+
                                             
                                 });
 
@@ -160,6 +236,6 @@
 </style>
     
 <main>
-    <div id="Chart4" class="chartcontainer"></div>
+    <div id="chart4" class="chartcontainer"></div>
 </main>
 
