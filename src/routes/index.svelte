@@ -5,6 +5,7 @@ import Tile from '$lib/Tile.svelte';
 import Hchart2 from './Hchart2.svelte';
 import Hchart3 from './Hchart3.svelte';
 import Hchart4 from './Hchart4.svelte';
+import Hchart5 from './Hchart5.svelte';
 import Hcharts01 from './Hcharts01.svelte';
 
 
@@ -89,6 +90,8 @@ import Hcharts01 from './Hcharts01.svelte';
             auctor condimentum turpis nec fringilla. Donec at varius
             felis.
         </p>
+
+        <Hchart5></Hchart5>
         
         <h3>Subheadline two</h3>
         

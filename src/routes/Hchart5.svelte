@@ -104,43 +104,43 @@
                                     xcats.push(element.date.value);
                                 }
                                 else if (element.localname.value == 'East Scotland') {
-                                    EastScot.push(element.rainfall.value);
+                                    EastScot.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'North Scotland') {
-                                    NorthScot.push(element.rainfall.value);
+                                    NorthScot.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'West Scotland') {
-                                    WestScot.push(element.rainfall.value);
+                                    WestScot.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'Northen Ireland') {
-                                    NorthenIreland.push(element.rainfall.value);
+                                    NorthenIreland.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'East Midlands') {
-                                    EastMidlads.push(element.rainfall.value);
+                                    EastMidlads.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'West Midlands') {
-                                    WestMidlads.push(element.rainfall.value);
+                                    WestMidlads.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'East England') {
-                                    EastEngland.push(element.rainfall.value);
+                                    EastEngland.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'London') {
-                                    London.push(element.rainfall.value);
+                                    London.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'North East England') {
-                                    NorthEastEngland.push(element.rainfall.value);
+                                    NorthEastEngland.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'North West England') {
-                                    NorthWestEngland.push(element.rainfall.value);
+                                    NorthWestEngland.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'South East England') {
-                                    SouthEastEngland.push(element.rainfall.value);
+                                    SouthEastEngland.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'South West England') {
-                                    SouthWestEngland.push(element.rainfall.value);
+                                    SouthWestEngland.push(Number(element.rainfall.value));
                                 }
                                 else if (element.localname.value == 'Yorkshire and Humber') {
-                                    YorkshireHumber.push(element.rainfall.value);
+                                    YorkshireHumber.push(Number(element.rainfall.value));
                                 }
 
 
@@ -152,11 +152,102 @@
 
 
                                 //highcharts here
+                                Highcharts.chart('chart5', {
 
+                                                        chart: {
+                                                            zoomType: 'x'
+                                                        },
 
+                                                        title: {
+                                                            text: 'Rainfall in the UK'
+                                                        },
 
+                                                        subtitle: {
+                                                            text: 'Values in millimetres - draw a square to zoom'
+                                                        },
 
+                                                        tooltip: {
+                                                            valueDecimals: 2
+                                                        },
 
+                                                        xAxis: {
+                                                            
+                                                            categories: xcats,
+                                                        },
+
+                                                        series: [{
+                                                                        data: Wales,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'Wales'
+                                                                    },
+                                                                    {
+                                                                        data: EastScot,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'East Scotland'
+                                                                    },
+                                                                    {
+                                                                        data: NorthScot,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'NorthScot'
+                                                                    },
+                                                                    {
+                                                                        data: WestScot,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'West Scotland'
+                                                                    },
+                                                                    {
+                                                                        data: NorthenIreland,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'Northen Ireland'
+                                                                    },
+                                                                    {
+                                                                        data: EastMidlads,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'East Midlands'
+                                                                    },
+                                                                    {
+                                                                        data: WestMidlads,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'West Midlands'
+                                                                    },
+                                                                    {
+                                                                        data: EastEngland,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'East England'
+                                                                    },
+                                                                    {
+                                                                        data: London,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'London'
+                                                                    },
+                                                                    {
+                                                                        data: NorthWestEngland,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'North West England'
+                                                                    },
+                                                                    {
+                                                                        data: NorthEastEngland,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'North East England'
+                                                                    },
+                                                                    {
+                                                                        data: SouthEastEngland,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'South East England'
+                                                                    },
+                                                                    {
+                                                                        data: SouthWestEngland,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'South West England'
+                                                                    },
+                                                                    {
+                                                                        data: YorkshireHumber,
+                                                                        lineWidth: 0.5,
+                                                                        name: 'Yorkshire and Humber'
+                                                                    }
+                                                                 ]
+
+                                            });
                                     
                             });
 
@@ -199,6 +290,6 @@
 </style>
     
 <main>
-    <div id="Chart5" class="chartcontainer"></div>
+    <div id="chart5" class="chartcontainer"></div>
 </main>
 
