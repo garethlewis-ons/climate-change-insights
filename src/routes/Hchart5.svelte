@@ -163,7 +163,7 @@
                                                         },
 
                                                         subtitle: {
-                                                            text: 'Values in millimetres - draw a square to zoom'
+                                                            text: 'Values in millilitres - draw a square to zoom'
                                                         },
 
                                                         tooltip: {
