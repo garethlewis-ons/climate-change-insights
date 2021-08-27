@@ -75,7 +75,7 @@
                     getChart5(info.dataset)
                         .then(datasetInfo => {
 
-                            console.log(datasetInfo);
+                            //console.log(datasetInfo);
 
                             var counter = 0;
                             var xcats = [];

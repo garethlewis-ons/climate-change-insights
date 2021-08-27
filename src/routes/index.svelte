@@ -2,9 +2,9 @@
 
 import PageSummary from '$lib/PageSummary.svelte'
 import Tile from '$lib/Tile.svelte';
+import Datasetinfo1 from './Datasetinfo1.svelte';
 import Hchart2 from './Hchart2.svelte';
 import Hchart3 from './Hchart3.svelte';
-import Hchart4 from './Hchart4.svelte';
 import Hchart5 from './Hchart5.svelte';
 import Hcharts01 from './Hcharts01.svelte';
 
@@ -81,7 +81,7 @@ import Hcharts01 from './Hcharts01.svelte';
             sociosqu ad litora torquent per conubia nostra, per inceptos
             himenaeos. 
         </p>
-        <Hchart4></Hchart4>
+        
         <p>
             Phasellus ut dignissim erat, ut porta justo. Vestibulum
             eleifend sed risus nec efficitur. Fusce congue, libero vel
@@ -94,7 +94,7 @@ import Hcharts01 from './Hcharts01.svelte';
         <Hchart5></Hchart5>
         
         <h3>Subheadline two</h3>
-        
+        <Datasetinfo1></Datasetinfo1>
         <p>
             Curabitur posuere at erat dapibus pharetra. In sed sem
             ultricies, cursus dui a, malesuada nisi. Aliquam tempus velit 

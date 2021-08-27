@@ -148,7 +148,7 @@ fetch('./charts/dataset1.json')
                               
                         });
                 
-                        console.log("chart2")
+                   
                         
                         Highcharts.chart('chart2', { 
                         
